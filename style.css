@@ -1,0 +1,884 @@
+
+:root {
+  --font-primary: 'Work Sans', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  --font-heading: 'Poppins', sans-serif;
+  --font-button: 'Roboto', sans-serif;
+  --font-decorative: 'Volkhov', serif;
+
+  --color-white: #fff;
+  --color-black: #000;
+  --color-primary: #B88E2F;
+  --color-primary-hover: #a17828;
+  --color-accent: #a78b48;
+  --color-text-primary: #333;
+  --color-text-secondary: #777;
+  --color-text-light: #9f9f9f;
+  --color-border: #e0e0e0;
+  --color-border-light: #e3e3e3;
+  --color-banner-bg: #FFF3E3;
+  --color-card-shadow: rgba(0, 0, 0, 0.08);
+  --color-card-shadow-hover: rgba(0, 0, 0, 0.15);
+  --color-button-shadow: rgba(184, 142, 47, 0.3);
+  --color-header-shadow: rgba(0, 0, 0, 0.1);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: var(--font-primary);
+  background-color: var(--color-white);
+  color: var(--color-black);
+  padding-top: 120px; 
+  scroll-behavior: smooth;
+}
+
+
+.header {
+  background-color: var(--color-white);
+  border-bottom: 1px solid var(--color-border);
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  padding: 2rem 0;
+  box-shadow: var(--color-header-shadow);
+  transition: all 0.3s ease;
+  width: 100%;
+}
+
+.container {
+  max-width: 1400px;
+  margin: auto;
+  padding: 0 4rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 2rem;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  color: var(--color-black);
+  font-size: 2.5rem;
+  font-weight: bold;
+  font-family: var(--font-heading);
+  gap: 0.8rem;
+}
+
+.logo img {
+  height: 48px;
+}
+
+.navigation .nav-menu {
+  display: flex;
+  list-style: none;
+  gap: 3rem;
+}
+
+.nav-menu a {
+  text-decoration: none;
+  color: var(--color-black);
+  font-weight: 500;
+  font-size: 18px;
+  font-family: var(--font-primary);
+  transition: all 0.3s ease;
+  position: relative;
+  padding: 0.8rem 0;
+}
+
+.nav-menu a:hover {
+  color: var(--color-accent);
+}
+
+.nav-menu a::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background-color: var(--color-accent);
+  transition: width 0.3s ease;
+}
+
+.nav-menu a:hover::after,
+.nav-menu a:focus::after {
+  width: 100%;
+}
+
+.nav-menu a:focus {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+.header-icons {
+  display: flex;
+  gap: 2rem;
+}
+
+.header-icons a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.8rem;
+  border-radius: 50%;
+  transition: all 0.3s ease;
+}
+
+.header-icons a img {
+  height: 28px;
+  transition: transform 0.3s ease;
+}
+
+.header-icons a:hover,
+.header-icons a:focus {
+  background-color: rgba(167, 139, 72, 0.1);
+  transform: translateY(-2px);
+}
+
+.header-icons a:hover img,
+.header-icons a:focus img {
+  transform: scale(1.15);
+}
+
+.header-icons a:focus {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 2px;
+}
+
+
+.footer {
+  background-color: var(--color-white);
+  padding: 4rem 6vw 2rem;
+  color: var(--color-black);
+  font-family: 'Segoe UI', sans-serif;
+}
+
+.footer-wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 4rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.footer-logo {
+  min-width: 280px;
+}
+
+.footer-logo a,
+.footer-logo img {
+  display: none;
+}
+
+.footer-logo::before {
+  content: "Furniro.";
+  font-size: 2.5rem;
+  font-weight: 700;
+  font-family: var(--font-heading);
+  color: var(--color-black);
+  display: block;
+  margin-bottom: 1.5rem;
+  line-height: 1;
+}
+
+.footer-logo p {
+  font-size: 14px;
+  color: var(--color-text-light);
+  line-height: 1.8;
+  margin: 0 0 0.3rem 0;
+  font-weight: 400;
+}
+
+.footer-links {
+  display: flex;
+  flex: 1;
+  justify-content: space-between;
+  gap: 6rem;
+}
+
+.link-column {
+  display: flex;
+  flex-direction: column;
+  min-width: 120px;
+}
+
+.link-column h4 {
+  font-size: 16px;
+  font-weight: 400;
+  color: var(--color-text-light);
+  margin-bottom: 1.5rem;
+  line-height: 1;
+}
+
+.link-column a {
+  text-decoration: none;
+  color: var(--color-black);
+  font-size: 16px;
+  font-weight: 700;
+  font-family: var(--font-primary);
+  margin-bottom: 1.2rem;
+  line-height: 1.4;
+  transition: color 0.3s ease;
+}
+
+.link-column a:hover {
+  color: var(--color-accent);
+}
+
+.newsletter {
+  min-width: 240px;
+}
+
+.newsletter h4 {
+  font-size: 16px;
+  font-weight: 400;
+  color: var(--color-text-light);
+  margin-bottom: 2.5rem;
+  line-height: 1;
+}
+
+.newsletter-form {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  border-bottom: 1px solid var(--color-border);
+  padding-bottom: 0.5rem;
+}
+
+.newsletter-form input {
+  flex: 1;
+  border: none;
+  outline: none;
+  font-size: 16px;
+  font-family: var(--font-primary);
+  background-color: transparent;
+  color: var(--color-black);
+  padding: 0.2rem 0;
+  font-weight: 400;
+}
+
+.newsletter-form input::placeholder {
+  color: var(--color-text-light);
+  font-weight: 400;
+}
+
+.newsletter-form button {
+  background: none;
+  border: none;
+  font-weight: 700;
+  font-size: 16px;
+  font-family: var(--font-primary);
+  color: var(--color-black);
+  cursor: pointer;
+  text-decoration: underline;
+  padding: 0;
+  white-space: nowrap;
+  transition: color 0.3s ease;
+}
+
+.newsletter-form button:hover {
+  color: var(--color-accent);
+}
+
+.footer-divider {
+  border: none;
+  border-top: 1px solid var(--color-border-light);
+  margin: 4rem 0 2rem;
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.footer-bottom {
+  font-size: 14px;
+  color: var(--color-black);
+  text-align: left;
+  max-width: 1200px;
+  margin: 0 auto;
+  font-weight: 400;
+}
+
+.banner {
+  background: url("./assest/images/banner.png") no-repeat center center/cover;
+  min-height: 80vh;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  padding: 4rem 2rem;
+  position: relative;
+}
+
+.banner-content {
+  background-color: var(--color-banner-bg);
+  padding: 25px 72px 25px 72px;
+  margin-top: auto;
+  margin-right: 26rem;
+  max-width: 480px;
+  border-radius: 12px;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
+}
+
+.small-title {
+  color: var(--color-text-primary);
+  font-size: 16px;
+  font-weight: 500;
+  font-family: var(--font-primary);
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  margin-bottom: 1.5rem;
+}
+
+.main-heading {
+  color: var(--color-primary);
+  font-size: 48px;
+  font-weight: 700;
+  font-family: var(--font-heading);
+  line-height: 1.1;
+  margin-bottom: 1.5rem;
+}
+
+.description {
+  font-size: 16px;
+  font-family: var(--font-primary);
+  color: var(--color-text-primary);
+  line-height: 1.6;
+  margin-bottom: 2.5rem;
+}
+
+.btn-buy {
+  background-color: var(--color-primary);
+  color: var(--color-white);
+  text-decoration: none;
+  padding: 1.2rem 3rem;
+  font-weight: 600;
+  font-size: 16px;
+  font-family: var(--font-button);
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: inline-block;
+  border-radius: 8px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.btn-buy:hover {
+  background-color: var(--color-primary-hover);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 15px var(--color-button-shadow);
+}
+
+
+.browse-range {
+  padding: 6rem 2rem;
+  background-color: var(--color-white);
+}
+
+.browse-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+
+.browse-text {
+  text-align: center;
+  margin-bottom: 5rem;
+  max-width: 600px;
+}
+
+.browse-text h2 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  font-family: var(--font-heading);
+  color: var(--color-text-primary);
+  margin-bottom: 1.5rem;
+  letter-spacing: -0.5px;
+}
+
+.browse-text p {
+  font-size: 1.1rem;
+  font-family: var(--font-primary);
+  color: var(--color-text-secondary);
+  line-height: 1.6;
+}
+
+
+.browse-cards {
+  display: flex;
+  gap: 3rem;
+  justify-content: center;
+  align-items: stretch;
+  width: 100%;
+}
+
+.browse-cards .card {
+  background-color: var(--color-white);
+  border-radius: 8px;
+  box-shadow: 0 4px 20px var(--color-card-shadow);
+  overflow: hidden;
+  transition: all 0.3s ease;
+  width: 320px;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+}
+
+.browse-cards .card img {
+  width: 100%;
+  height: 320px;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+  border-radius: 8px 8px 0 0;
+}
+
+.browse-cards .card h3 {
+  font-size: 1.25rem;
+  font-weight: 600;
+  font-family: var(--font-heading);
+  color: var(--color-text-primary);
+  margin: 1.5rem 0;
+  text-align: center;
+  letter-spacing: 0.5px;
+}
+
+.browse-cards .card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 8px 30px var(--color-card-shadow-hover);
+}
+
+.browse-cards .card:hover img {
+  transform: scale(1.05);
+}
+
+
+@media (min-width: 1400px) {
+  .container {
+    max-width: 1400px;
+    padding: 0 6rem;
+  }
+  
+  .browse-container {
+    max-width: 1400px;
+  }
+  
+  .footer-wrapper {
+    max-width: 1400px;
+  }
+}
+
+
+@media (max-width: 1399px) {
+  .container {
+    max-width: 1200px;
+    padding: 0 4rem;
+  }
+  
+  .browse-container {
+    max-width: 1200px;
+  }
+  
+  .footer-wrapper {
+    max-width: 1200px;
+  }
+}
+
+
+@media (max-width: 1199px) {
+  .container {
+    max-width: 1000px;
+    padding: 0 3rem;
+  }
+  
+  .browse-container {
+    max-width: 1000px;
+  }
+  
+  .footer-wrapper {
+    max-width: 1000px;
+  }
+  
+  .browse-cards {
+    gap: 2rem;
+  }
+  
+  .browse-cards .card {
+    width: 280px;
+  }
+  
+  .browse-cards .card img {
+    height: 280px;
+  }
+  
+  .main-heading {
+    font-size: 42px;
+  }
+  
+  .browse-text h2 {
+    font-size: 2.2rem;
+  }
+}
+
+
+@media (max-width: 991px) {
+  .container {
+    max-width: 100%;
+    padding: 0 2rem;
+  }
+  
+  .browse-container {
+    max-width: 100%;
+  }
+  
+  .footer-wrapper {
+    max-width: 100%;
+  }
+  
+  .logo {
+    font-size: 2.2rem;
+  }
+  
+  .logo img {
+    height: 42px;
+  }
+  
+  .nav-menu a {
+    font-size: 16px;
+  }
+  
+  .navigation .nav-menu {
+    gap: 2rem;
+  }
+  
+  .header-icons a img {
+    height: 26px;
+  }
+  
+  .banner {
+    padding: 3rem 2rem;
+  }
+  
+  .banner-content {
+    padding: 2.5rem;
+    margin-right: 2rem;
+    max-width: 450px;
+  }
+  
+  .main-heading {
+    font-size: 38px;
+  }
+  
+  .browse-range {
+    padding: 5rem 2rem;
+  }
+  
+  .browse-text h2 {
+    font-size: 2rem;
+  }
+  
+  .browse-cards {
+    gap: 1.5rem;
+  }
+  
+  .browse-cards .card {
+    width: 260px;
+  }
+  
+  .browse-cards .card img {
+    height: 260px;
+  }
+  
+  .footer {
+    padding: 3rem 2rem 2rem;
+  }
+  
+  .footer-wrapper,
+  .footer-links {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 2.5rem;
+    width: 100%;
+  }
+  
+  .footer-logo {
+    min-width: auto;
+    width: 100%;
+  }
+  
+  .footer-bottom {
+    text-align: center;
+  }
+}
+
+
+@media (max-width: 767px) {
+  .header {
+    padding: 1.5rem 0;
+  }
+  
+  .container {
+    padding: 0 1.5rem;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+  
+  .logo {
+    font-size: 2rem;
+    justify-content: center;
+    width: 100%;
+  }
+  
+  .logo img {
+    height: 38px;
+  }
+  
+  .navigation .nav-menu {
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    width: 100%;
+  }
+  
+  .nav-menu a {
+    font-size: 16px;
+    padding: 0.6rem 0;
+  }
+  
+  .header-icons {
+    justify-content: center;
+    gap: 1.5rem;
+    width: 100%;
+  }
+  
+  .header-icons a img {
+    height: 24px;
+  }
+  
+  body {
+    padding-top: 140px;
+  }
+  
+  .banner {
+    justify-content: center;
+    padding: 2rem 1rem;
+    text-align: center;
+    min-height: 70vh;
+  }
+  
+  .banner-content {
+    max-width: 90%;
+    padding: 2rem 1.5rem;
+    margin-right: 0;
+  }
+  
+  .main-heading {
+    font-size: 32px;
+  }
+  
+  .small-title {
+    font-size: 14px;
+  }
+  
+  .description {
+    font-size: 14px;
+  }
+  
+  .btn-buy {
+    padding: 1rem 2.5rem;
+    font-size: 14px;
+  }
+  
+  .browse-range {
+    padding: 4rem 1rem;
+  }
+  
+  .browse-text {
+    margin-bottom: 3rem;
+  }
+  
+  .browse-text h2 {
+    font-size: 1.8rem;
+  }
+  
+  .browse-text p {
+    font-size: 1rem;
+  }
+  
+  .browse-cards {
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+  }
+  
+  .browse-cards .card {
+    width: 100%;
+    max-width: 320px;
+  }
+  
+  .browse-cards .card img {
+    height: 320px;
+  }
+  
+  .footer {
+    padding: 2rem 1rem 1rem;
+  }
+  
+  .footer-wrapper,
+  .footer-links {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 2.5rem;
+    width: 100%;
+  }
+  
+  .footer-logo {
+    min-width: auto;
+    width: 100%;
+  }
+  
+  .footer-bottom {
+    text-align: center;
+  }
+}
+
+
+@media (max-width: 575px) {
+  .container {
+    padding: 0 1rem;
+  }
+  
+  .logo {
+    font-size: 1.8rem;
+  }
+  
+  .logo img {
+    height: 34px;
+  }
+  
+  .nav-menu a {
+    font-size: 15px;
+  }
+  
+  .header-icons a img {
+    height: 22px;
+  }
+  
+  body {
+    padding-top: 130px;
+  }
+  
+  .banner {
+    min-height: 60vh;
+  }
+  
+  .banner-content {
+    padding: 1.5rem 1rem;
+  }
+  
+  .main-heading {
+    font-size: 28px;
+  }
+  
+  .browse-text h2 {
+    font-size: 1.6rem;
+  }
+  
+  .browse-cards .card {
+    max-width: 280px;
+  }
+  
+  .browse-cards .card img {
+    height: 280px;
+  }
+  
+  .footer-logo::before {
+    font-size: 2rem;
+  }
+  
+  .link-column a {
+    font-size: 14px;
+  }
+  
+  .newsletter-form input {
+    font-size: 14px;
+  }
+  
+  .newsletter-form button {
+    font-size: 14px;
+  }
+}
+
+
+@media (max-width: 374px) {
+  .container {
+    padding: 0 0.8rem;
+  }
+  
+  .logo {
+    font-size: 1.6rem;
+  }
+  
+  .logo img {
+    height: 30px;
+  }
+  
+  .nav-menu a {
+    font-size: 14px;
+  }
+  
+  .header-icons a img {
+    height: 20px;
+  }
+  
+  body {
+    padding-top: 120px;
+  }
+  
+  .banner-content {
+    padding: 1.2rem 0.8rem;
+  }
+  
+  .main-heading {
+    font-size: 24px;
+  }
+  
+  .browse-text h2 {
+    font-size: 1.4rem;
+  }
+  
+  .browse-cards .card {
+    max-width: 260px;
+  }
+  
+  .browse-cards .card img {
+    height: 260px;
+  }
+  
+  .footer-logo::before {
+    font-size: 1.8rem;
+  }
+  
+  .link-column a {
+    font-size: 13px;
+  }
+  
+  .newsletter-form input {
+    font-size: 13px;
+  }
+  
+  .newsletter-form button {
+    font-size: 13px;
+  }
+}
