@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Furniro - Beautiful Rooms Inspiration</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Inspiration Section -->
+    <section class="inspiration-section">
+        <div class="inspiration-container">
+            <!-- Left Content -->
+            <div class="inspiration-content">
+                <h2 class="inspiration-title">50+ Beautiful rooms inspiration</h2>
+                <p class="inspiration-description">Our designer already made a lot of beautiful prototype of rooms that inspire you</p>
+                <button class="explore-btn">Explore More</button>
+            </div>
+            
+            <!-- Right Carousel -->
+            <div class="inspiration-carousel">
+                <div class="carousel-container">
+                    <div class="carousel-track" id="carouselTrack">
+                        <!-- Slide 1 -->
+                        <div class="carousel-slide active">
+                            <img src="assest/images/bedroom.jpeg" alt="Bedroom inspiration">
+                            <div class="slide-overlay">
+                                <div class="slide-content">
+                                    <span class="slide-number">01</span>
+                                    <span class="slide-separator">——</span>
+                                    <span class="slide-category">Bed Room</span>
+                                    <h3 class="slide-title">Inner Peace</h3>
+                                    <button class="slide-arrow">
+                                        <img src="assest/icons/next_icon_sq.png" alt="Next">
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Slide 2 -->
+                        <div class="carousel-slide">
+                            <img src="assest/images/living_room.jpeg" alt="Living room inspiration">
+                            <div class="slide-overlay">
+                                <div class="slide-content">
+                                    <span class="slide-number">02</span>
+                                    <span class="slide-separator">——</span>
+                                    <span class="slide-category">Living Room</span>
+                                    <h3 class="slide-title">Modern Comfort</h3>
+                                    <button class="slide-arrow">
+                                        <img src="assest/icons/next_icon_sq.png" alt="Next">
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Slide 3 -->
+                        <div class="carousel-slide">
+                            <img src="assest/images/Dining_room.jpeg" alt="Dining room inspiration">
+                            <div class="slide-overlay">
+                                <div class="slide-content">
+                                    <span class="slide-number">03</span>
+                                    <span class="slide-separator">——</span>
+                                    <span class="slide-category">Dining Room</span>
+                                    <h3 class="slide-title">Elegant Space</h3>
+                                    <button class="slide-arrow">
+                                        <img src="assest/icons/next_icon_sq.png" alt="Next">
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Navigation -->
+                    <div class="carousel-nav">
+                        <button class="nav-prev" id="prevBtn">
+                            <img src="assest/icons/next_icons.png" alt="Previous">
+                        </button>
+                        <button class="nav-next" id="nextBtn">
+                            <img src="assest/icons/next_icons.png" alt="Next">
+                        </button>
+                    </div>
+                    
+                    <!-- Dots Indicator -->
+                    <div class="carousel-dots">
+                        <span class="dot active" data-slide="0"></span>
+                        <span class="dot" data-slide="1"></span>
+                        <span class="dot" data-slide="2"></span>
+                        <span class="dot" data-slide="3"></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        // Carousel functionality
+        const track = document.getElementById('carouselTrack');
+        const slides = document.querySelectorAll('.carousel-slide');
+        const dots = document.querySelectorAll('.dot');
+        const prevBtn = document.getElementById('prevBtn');
+        const nextBtn = document.getElementById('nextBtn');
+        
+        let currentSlide = 0;
+        const totalSlides = slides.length;
+        
+        function updateCarousel() {
+            // Update track position
+            const offset = -currentSlide * 100;
+            track.style.transform = `translateX(${offset}%)`;
+            
+            // Update active slide
+            slides.forEach((slide, index) => {
+                slide.classList.toggle('active', index === currentSlide);
+            });
+            
+            // Update dots
+            dots.forEach((dot, index) => {
+                dot.classList.toggle('active', index === currentSlide);
+            });
+        }
+        
+        function nextSlide() {
+            currentSlide = (currentSlide + 1) % totalSlides;
+            updateCarousel();
+        }
+        
+        function prevSlide() {
+            currentSlide = (currentSlide - 1 + totalSlides) % totalSlides;
+            updateCarousel();
+        }
+        
+        // Event listeners
+        nextBtn.addEventListener('click', nextSlide);
+        prevBtn.addEventListener('click', prevSlide);
+        
+        dots.forEach((dot, index) => {
+            dot.addEventListener('click', () => {
+                currentSlide = index;
+                updateCarousel();
+            });
+        });
+        
+        // Auto-play (optional)
+        setInterval(nextSlide, 5000);
+    </script>
+</body>
+</html>
